@@ -1,0 +1,46 @@
+html {box-sizing:border-box;}
+*,* :after, *:before {box-sizing:inherit;}
+
+body {
+	text-align: center;
+}
+
+h1 {
+	font-size: 80px;
+	font-weight: bold;
+	left: 0;
+    line-height: 200px;
+  
+}
+ 
+.form {
+	border: 1px solid black;
+	width: 526px;
+	height: 103px;
+	position: absolute;
+    top: 239px;
+    right: 387px;
+    display: flex;
+
+}
+
+.inputs {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    top: 66px;
+    right: 0;
+  
+
+}
+
+
+.guess-field {
+	text-align: center;
+
+
+}
+
+#wordBlank {
+	letter-spacing: 2px;
+}
