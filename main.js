@@ -1,12 +1,14 @@
 $(document).ready(function(){
-	function chooseRandomWord(arr) {
-	  return arr[Math.floor(Math.random() * arr.length -1 )];
-	}
-
+	
 	var threeLetters = commonWords.filter(function(word){
 		return word.length >= 3
 
 	}) 
+	var chooseRandomWord =  
+	  threeLetters[Math.floor(Math.random() * threeLetters.length -1 )];
+	
+
+	console.log(chooseRandomWord)
 
 	function letterLength(arr) {
 		let word = ""
@@ -16,50 +18,52 @@ $(document).ready(function(){
 		$('#wordBlank').html(word)
 	}
 
-	var wordArr = chooseRandomWord(threeLetters).split("")
 	
-	letterLength(wordArr)
-
-	console.log(wordArr)
+	
+	
 
 	var char = ""
 
 	var tries = 9
 
-
-	var guesses = [] //this is one letter only
+	var guessWord = '' 
+	for(let i = 0; i < chooseRandomWord.length; i++){
+		guessWord += '_'
+	}
+	$('#wordBlank').html(guessWord)
+	var guesses = [] 
 	$("#guess").on('change',function(){
 		char = $('#guess').val()
 		char = char.toLowerCase()
-		var guessWord = wordArr.map(function(){
-			return "_"
-		})
 		guesses.push(char)
-		$("#letters").html(guesses)
+		$("#letters").html(`${guesses} `)
 
-		console.log(guessWord)
+		tries --
 
-		
-
-		for (i = 0; i < chooseRandomWord.length; i++) { 
-  			if ( wordArr[i] === char) {
-  				guessWord[i] = char
-  				$('#wordBlank').html(guessWord.join(''))
+		for (i = 0; i < guessWord.length; i++) { 
+  			if (chooseRandomWord.charAt(i) === char) {
+  				wordArr = guessWord.split("")
+  				wordArr[i] = char
+  				guessWord = wordArr.join("")
 
   			}
+  			$('#wordBlank').html(guessWord)
   			var results = ""
-			if ( chooseRandomWord === guessWord) {
+
+			if (tries >= 0 && chooseRandomWord === guessWord) {
 			  results = "You won!"
-			}else if(chooseRandomWord !== guessWord){
+			  break;
+			}else if(tries > 0 && chooseRandomWord !== guessWord){
 				results = "Guess again!"
+				$('#guess').val('')
 			} else {
-			  results = "That wasn't the word, try again!"
+			  results = "Ran out of tries! Game over!"
 			}
 		}
 
+		
+		
 		$('#turns').html(`Turns Left: ${tries}`)
-		tries --
-
 		$("#results").html(results)
 	})
 

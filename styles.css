@@ -12,16 +12,12 @@ h1 {
     line-height: 200px;
   
 }
+#wordBlank {
+	letter-spacing: 2px;
+}
  
-.form {
-	border: 1px solid black;
-	width: 526px;
-	height: 103px;
-	position: absolute;
-    top: 239px;
-    right: 387px;
-    display: flex;
-
+#turns {
+	margin-top: 35px;
 }
 
 .inputs {
@@ -30,17 +26,26 @@ h1 {
     position: absolute;
     top: 66px;
     right: 0;
-  
 
 }
 
-
-.guess-field {
+#guess {
+	margin-top: 40px;
+	height: 60px;
+	width: 63px;
+	font-size: 30px;
 	text-align: center;
-
-
 }
 
-#wordBlank {
-	letter-spacing: 2px;
+#letters {
+	margin-top: 30px;
 }
+
+#results {
+	margin-top: 30px;
+}
+
+
+
+
+
