@@ -13,11 +13,13 @@ h1 {
   
 }
 #wordBlank {
-	letter-spacing: 2px;
+	letter-spacing: 10px;
+	font-size: 50px;
 }
  
 #turns {
 	margin-top: 35px;
+	font-size: 25px;
 }
 
 .inputs {
