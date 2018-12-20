@@ -18,10 +18,6 @@ $(document).ready(function(){
 		$('#wordBlank').html(word)
 	}
 
-	
-	
-	
-
 	var char = ""
 
 	var tries = 9
@@ -31,7 +27,9 @@ $(document).ready(function(){
 		guessWord += '_'
 	}
 	$('#wordBlank').html(guessWord)
+
 	var guesses = [] 
+
 	$("#guess").on('change',function(){
 		char = $('#guess').val()
 		char = char.toLowerCase()
@@ -53,16 +51,17 @@ $(document).ready(function(){
 			if (tries >= 0 && chooseRandomWord === guessWord) {
 			  results = "You won!"
 			  break;
+
 			}else if(tries > 0 && chooseRandomWord !== guessWord){
 				results = "Guess again!"
 				$('#guess').val('')
+
 			} else {
-			  results = "Ran out of tries! Game over!"
+			  results = `Game over! The word was "${chooseRandomWord}"`
 			}
+		
 		}
 
-		
-		
 		$('#turns').html(`Turns Left: ${tries}`)
 		$("#results").html(results)
 	})
